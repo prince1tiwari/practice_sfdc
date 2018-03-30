@@ -1,0 +1,16 @@
+<apex:page controller="TrainingController">
+  
+  <apex:sectionHeader title="Training For Pilot Users" subtitle="Step 3 of 4"/>
+  <apex:form >
+    <apex:pageBlock title="Getting Started with Report & dashboard" mode="edit">
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!step2}" value="Privous: Sales Cloud"/>
+        <apex:commandButton action="{!step4}" value="Next: Sync Your Outlook with SalesForce"/>
+        <!--<apex:commandButton action="{!cancel}" value="Cancel"  onclick="return confirmCancel()" immediate="true"/>-->
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="This is your Third Phase of the Journey {!$User.FirstName}">
+      <apex:iframe width="800" height="700" src="https://lms.cfs-api.com/v1/12/lms.aspx?hash=WUlRa1pjd0RRUDYrZVh6cUtFcVpCVGg3LzVnNFpwSkF0SktWaWxmMG03TFFaaEhTUDlCWWtJQUl4cXZpcm5NUy85bXdQempGbHpLQXEya1Fpb0I5bEVscU9EWExYUHdXQkdxTXRDTEIrTEp0SUh4c3hXUG4yeTVjRU5JYWhGaFdmdmVYRm9UM3poL24wRVN3WjIzeE13PT0="/>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

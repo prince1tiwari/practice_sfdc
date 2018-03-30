@@ -1,0 +1,18 @@
+<apex:page standardController="Account">
+
+Hello {!$User.FirstName},
+<p>Lets view and update the account {!account.name}</p>
+<apex:pageBlock title=" View Account Detail">
+Account id: {!account.AccountNumber}
+<p>phone number: {!account.phone}</p>
+<p>Account Rating: {!account.rating}</p>
+</apex:pageBlock>
+<apex:form >
+<apex:pageBlock title=" Update Account Detail">
+Account Number: <apex:inputField id="accountNumber" value="{!account.AccountNumber}"/>
+<p><apex:inputField id="AccountPhone" value="{!account.phone} "/></p>
+<apex:inputField id="AccountRating" value="{!account.rating}"/>
+<apex:commandButton value="Save" action="{!save}"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

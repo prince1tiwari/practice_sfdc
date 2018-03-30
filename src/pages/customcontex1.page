@@ -1,0 +1,25 @@
+<apex:page Controller="Base" extensions="Derived">
+
+<apex:pageBlock >
+
+<apex:pageBlockSection title="sample" >
+
+{!age}
+
+{!phone} 
+
+<apex:form >
+
+<apex:commandButton action="{!callDerived}"     value="reset"/> 
+
+</apex:form>
+
+{!age}
+
+{!phone}  
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+</apex:page>

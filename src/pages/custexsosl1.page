@@ -1,0 +1,39 @@
+<apex:page controller="soslReplacementController">
+
+    <apex:form >
+
+        <apex:pageblock >
+
+            <apex:outputLabel for="searchParam">Keyword Search: </apex:outputLabel>
+
+            <apex:inputText id="searchParam" value="{!search}"/>
+
+            <apex:commandButton value="Search..." action="{!doSearch}"/>
+
+            <apex:pageblockSection title="Search results...">
+
+                <apex:pageblockTable value="{!allSearchedAccs}" var="acc">
+
+                    <apex:column value="{!acc.name}"/>
+
+                </apex:pageblockTable>
+
+                <apex:pageblockTable value="{!allSearchedCons}" var="con">
+
+                    <apex:column value="{!con.lastname}"/>
+
+                </apex:pageblockTable>
+
+                <apex:pageblockTable value="{!allSearchedOpps}" var="opp">
+
+                    <apex:column value="{!opp.name}"/>
+
+                </apex:pageblockTable>                                
+
+            </apex:pageblockSection>
+
+        </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

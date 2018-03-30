@@ -1,0 +1,36 @@
+<apex:page controller="AjaxCont">
+
+<apex:sectionHeader title="Contacts" subtitle="Account List"/>
+<apex:form >
+
+<apex:pageBlock title="Account Select Options" mode="Edit">
+
+<apex:pageblockSection title="Account DropDown List" >
+<apex:pageBlockSectionItem >
+<b>Accounts:</b><br/>
+<apex:selectList value="{!selectedAcc}" size="1">
+<apex:selectOptions value="{!Accounts}"></apex:selectOptions>
+<apex:actionSupport action="{!findcontactList}" event="onchange"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+
+<apex:pageblockSectionItem >
+<b>Contacts:</b><br/>
+<apex:dataTable value="{!contacts}" var="c" cellpadding="4" border="1">
+<apex:column >
+<apex:facet name="header"><b>Name</b></apex:facet> <apex:outputText value="{!c.name}"></apex:outputText>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header"><b>Account Name</b></apex:facet><apex:outputText value="{!c.accountid}"></apex:outputText>
+</apex:column>
+
+
+</apex:dataTable>
+</apex:pageblockSectionItem>
+</apex:pageblockSection>
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

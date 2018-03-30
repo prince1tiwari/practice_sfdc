@@ -1,0 +1,39 @@
+<apex:page controller="mySOSL">
+
+    <apex:form >
+
+        <apex:pageblock >
+
+            <apex:pageblockSection title="Search" columns="3">
+
+                <apex:inputtext value="{!search}"/>
+
+                <apex:commandButton value="Search" action="{!DoSearch}"/>
+
+            </apex:pageblockSection>
+
+    
+
+            <apex:pageblockSection title="Results...">
+
+                <apex:pageblockTable value="{!allAccs}" var="acc" title="Account Results...">
+
+                    <apex:column value="{!acc.id}"/>
+
+                    <apex:column value="{!acc.name}"/>
+
+                    <apex:column value="{!acc.AccountNumber}"/>
+
+                    <apex:column value="{!acc.ownerid}"/>
+
+                   
+
+                </apex:pageblockTable>
+
+            </apex:pageblockSection>
+
+        </apex:pageblock>
+
+    </apex:form>        
+
+</apex:page>

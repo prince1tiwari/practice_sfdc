@@ -1,0 +1,15 @@
+<apex:page controller="TrainingController">
+  
+  <apex:sectionHeader title="Training For Pilot Users" subtitle="Step 4 of 4"/>
+  <apex:form >
+    <apex:pageBlock title="Sync your outlook with SalesForce" mode="edit">
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!step3}" value="Previous: Report & dashboard"/>
+        <!--<apex:commandButton action="{!cancel}" value="Cancel"  onclick="return confirmCancel()" immediate="true"/>-->
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Final Destination {!$User.FirstName}">
+      <apex:iframe width="800" height="700" src="https://www.youtube.com/embed/d1TiX8hQKx8"/>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

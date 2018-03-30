@@ -1,0 +1,53 @@
+<apex:page controller="wrapperClassController">
+
+<apex:messages />
+
+      <apex:form >
+
+          <apex:pageBlock >
+
+              <apex:pageBlockButtons >
+
+                  <apex:commandButton value="Process Selected" action="{!processSelected}" rerender="table"/>
+
+              </apex:pageBlockButtons>
+
+              <apex:pageBlockTable value="{!contacts}" var="c" id="table">
+
+                  <apex:column >
+
+                      <apex:inputCheckbox value="{!c.selected}"/>
+
+                  </apex:column>
+
+                  <apex:column headervalue="Name">
+
+                  <apex:inputfield value="{!c.con.Name}" label="First Name"/>
+
+                  </apex:column>
+
+                  <apex:column headervalue="Email">
+
+                  <apex:inputfield value="{!c.con.Email}" label="Email"/>
+
+                  </apex:column>
+
+                  <apex:column headervalue="Phone">
+
+                  <apex:inputfield value="{!c.con.Phone}" label="Phone"/>
+
+                  </apex:column>
+
+                  <apex:column headervalue="Description">
+
+                  <apex:inputfield value="{!c.con.description}" label="Description"/>
+
+                  </apex:column>
+
+              </apex:pageBlockTable>
+
+          </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,47 @@
+<apex:page controller="wrapperClassController2">
+
+    <apex:pageBlock title="Selected Contacts">
+
+        <apex:pageblockSection >
+
+            <apex:pageblockTable value="{!AllCons}" var="con">
+
+                <apex:column >
+
+                    <apex:facet name="header">Id</apex:facet>
+
+                    {!con.id}
+
+                </apex:column>
+
+                <apex:column >
+
+                    <apex:facet name="header">Last Name</apex:facet>
+
+                    {!con.lastname}
+
+                </apex:column>
+
+                <apex:column >
+
+                    <apex:facet name="header">Description</apex:facet>
+
+                    {!con.description}
+
+                </apex:column>  
+
+                <apex:column >
+
+                    <apex:facet name="header">Email</apex:facet>
+
+                    {!con.email}
+
+                </apex:column>                                              
+
+            </apex:pageblockTable>
+
+        </apex:pageblockSection>
+
+    </apex:pageBlock>
+
+</apex:page>

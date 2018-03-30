@@ -1,0 +1,9 @@
+<apex:page standardController="Account" tabStyle="Opportunity">
+    Hello {!$User.FirstName}..
+    <p>You are viewing the {!account.name} account.</p>
+    <p> Address of the above Account: {!account.BillingStreet} {!account.BillingCity} {!account.BillingState} {!account.BillingPostalCode} {!account.BillingCountry} </p>
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        You are viewing the {!account.name} account.
+</apex:pageBlock>
+
+</apex:page>

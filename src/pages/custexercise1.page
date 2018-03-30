@@ -1,0 +1,24 @@
+<apex:page controller="Base1" extensions="Derived1">
+
+<apex:form >
+
+    <apex:pageBlock title="{!$User.FirstName}">
+
+        Your Account Name: <apex:outputField value="{!account.name}"/>               
+
+        <apex:commandButton action="{!callDerived}" value="Get Contacts..."/>
+
+ 
+<apex:pageblockSection title="Contact DropDown List" >
+<apex:pageBlockSectionItem >
+<apex:selectList value="{!selectedCon}" size="1">
+<apex:selectOptions value="{!AllContactsDerived}"></apex:selectOptions>
+<apex:actionSupport action="{!showcontactviewpage}" event="onchange"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+</apex:pageblockSection>
+ </apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

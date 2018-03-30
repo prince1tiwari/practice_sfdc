@@ -1,0 +1,77 @@
+<apex:page controller="DynamicObjectSearchController">
+
+<apex:form >
+
+        <apex:outputPanel >
+
+            <apex:actionSupport event="onchange" rerender="out" action="{!fetchFields}" status="status">
+
+                <apex:selectList value="{!selObject}" size="1" multiselect="false">
+
+                    <apex:selectOptions value="{!objects}"/>
+
+                </apex:selectList><p/>
+
+            </apex:actionSupport>
+
+        </apex:outputPanel>
+
+    </apex:form>
+
+    <apex:outputPanel id="out">
+
+        <apex:actionstatus id="status" startText="fetching...">
+
+            <apex:facet name="stop">
+
+                <apex:form >
+
+                <apex:outputPanel >
+
+                <apex:actionSupport event="onchange" rerender="out1" status="status1" action="{!putSelField}" >
+
+                    
+
+                    <apex:selectList value="{!selField}" size="1" multiselect="false">
+
+                        <apex:selectOptions value="{!fields}" >
+
+                        </apex:selectOptions>
+
+                    </apex:selectList><p/>
+
+                    
+
+                    </apex:actionSupport>
+
+                </apex:outputPanel>
+
+                </apex:form>
+
+            </apex:facet>
+
+        </apex:actionstatus>
+
+    </apex:outputPanel>
+
+    <apex:outputPanel id="out1">
+
+    <apex:form > <apex:inputText value="{!fieldValue}"/>
+
+    <input type="hidden" value='{!selField}'/>
+
+    <apex:commandButton action="{!getRecord}" reRender="RecordValue" value="GetRecord"/>
+
+    </apex:form>
+
+    </apex:outputPanel>
+
+    <apex:outputPanel id="RecordValue">
+
+        <apex:form > <apex:inputtext value="{!recordIdValue}"/></apex:form>
+
+    </apex:outputPanel>
+
+    
+
+</apex:page>

@@ -1,0 +1,50 @@
+<apex:page Controller="IntegrationExCtrl">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Stock Symbol">
+                <apex:outputLabel for="stockSymbol" >Stock Symbol</apex:outputLabel>        
+                <apex:inputText id="stockSymbol" value="{!stockSymbol}"/>
+                <apex:commandButton value="Fetch Data..." action="{!fetchData}" reRender="refreshFetchedData" status="status"/>                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Fetched Data From Webservice">
+                <apex:outputPanel id="refreshFetchedData">
+                    <apex:actionStatus id="status" startText="Requesting...">
+                        <apex:facet name="stop">
+                             <apex:inputtextarea cols="100" rows="8" value="{!stockSymbolRetVal}"  />
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:outputPanel>
+                <apex:commandButton value="Process Data..." action="{!processData}" reRender="archiveFetchedData" status="status1"/>  
+            </apex:pageBlockSection> 
+            <apex:pageBlockSection title="Archived Data From Webservice">
+                <apex:outputPanel id="archiveFetchedData">
+                    <apex:actionStatus id="status1" startText="Requesting...">
+                        <apex:facet name="stop">
+                            <apex:inputtextarea cols="100" rows="3" value="{!stockSymbolProcessVal}"  />                            
+                            <br/>
+                            <apex:pageBlockTable value="{!allStockQuotes}" var="stock">
+                                <apex:column id="Last_accessed" value="{!stock.Last_accessed__c}"/>    
+                                <apex:column id="Name" value="{!stock.Name}"/> 
+                                <apex:column id="AnnRange" value="{!stock.AnnRange__c}"/>                       
+                                <apex:column id="Change" value="{!stock.Change__c}"/>
+                                <apex:column id="Date" value="{!stock.Date__c}"/>
+                                <apex:column id="Earns" value="{!stock.Earns__c}"/>
+                                <apex:column id="High" value="{!stock.High__c}"/>
+                                <apex:column id="Last" value="{!stock.Last__c}"/>    
+                                <apex:column id="Low" value="{!stock.Low__c}"/> 
+                                <apex:column id="MktCap" value="{!stock.MktCap__c}"/>                       
+                                <apex:column id="Open" value="{!stock.Open__c}"/>
+                                <apex:column id="P_E" value="{!stock.P_E__c}"/>
+                                <apex:column id="PercentageChange" value="{!stock.PercentageChange__c}"/>
+                                <apex:column id="PreviousClose" value="{!stock.PreviousClose__c}"/>    
+                                <apex:column id="Symbol" value="{!stock.Symbol__c}"/> 
+                                <apex:column id="Time" value="{!stock.Time__c}"/> 
+                                <apex:column id="Volume" value="{!stock.Volume__c}"/> 
+                            </apex:pageBlockTable>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:outputPanel>
+            </apex:pageBlockSection>  
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,59 @@
+<apex:page standardController="Account" >
+<apex:pageBlock >
+<apex:pageBlocksection >
+Hello {!$User.FirstName} {!$User.LastName}....
+        You are viewing the {!account.name} account.
+    </apex:pageBlocksection>
+</apex:pageBlock>
+<apex:pageblock >
+<apex:form >
+<apex:dataTable value="{!Account.Contacts}" var="contact" cellpadding="4" border="1" >
+<apex:column >
+       <apex:facet name="header">Name</apex:facet>
+<apex:commandLink rerender="detail">
+<apex:actionSupport event="onmouseover" rerender="detail" status="status">
+{!contact.Name}
+        <apex:param name="cid" value="{!contact.id}"/>
+</apex:actionSupport>        
+</apex:commandLink>
+</apex:column>
+<apex:column >
+        <apex:facet name="header">Phone</apex:facet>
+        {!contact.phone}
+</apex:column>
+<apex:column >
+        <apex:facet name="header">Email</apex:facet>
+        {!contact.email}
+</apex:column>
+</apex:dataTable>
+</apex:form>
+</apex:pageblock>
+<apex:pageBlock >
+<apex:form >
+<apex:pageBlocksection >
+<apex:dataTable value="{!Account.opportunities}" var="Oppy" cellpadding="4" border="1" >
+<apex:column >
+<apex:facet name="header">Opportunity Name</apex:facet>
+<apex:commandLink rerender="detail">
+<apex:actionSupport event="onmouseover" rerender="detail" status="status">
+{!Oppy.name}
+<apex:param name="cid" value="{!Oppy.id}"/>
+</apex:actionSupport>        
+</apex:commandLink>
+</apex:column>
+<apex:column >
+<apex:facet name="header">Owner</apex:facet>
+{!account.Owner.profile.name}
+</apex:column>
+</apex:dataTable>
+</apex:pageBlocksection>
+</apex:form>
+</apex:pageBlock>
+<apex:outputPanel id="detail">
+<apex:actionStatus id="status" startText="Requesting...">
+<apex:facet name="stop">
+ <apex:detail subject="{!$CurrentPage.parameters.cid}" relatedList="false" title="false"/>
+</apex:facet>
+</apex:actionStatus>
+ </apex:outputPanel>
+</apex:page>

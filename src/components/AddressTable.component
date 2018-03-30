@@ -1,0 +1,23 @@
+<apex:component >
+
+    <apex:attribute name="title" type="String" description="Title"/>
+
+    <apex:attribute name="accts" type="Account[]" description=""/>
+
+    <apex:pageblock title="{!title}">
+
+        <apex:pageblockTable value="{!accts}" var="acc">
+
+            <apex:column value="{!acc.Name}"/>
+
+            <apex:column value="{!acc.BillingStreet}"/>
+
+            <apex:column value="{!acc.BillingCity}"/>
+
+            <apex:column value="{!acc.BillingPostalCode}"/>
+
+        </apex:pageblockTable>
+
+    </apex:pageblock>
+
+</apex:component>

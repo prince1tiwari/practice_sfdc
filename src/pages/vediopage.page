@@ -1,0 +1,10 @@
+<apex:page standardController="PTO_Requests__c" showHeader="true" sidebar="true" standardStyleSheets="true">
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+Welcome {!$User.FirstName} {!$User.LastName} This is your first training Vedio
+</apex:pageblocksection>
+<apex:iframe width="800" height="700" src="https://lms.cfs-api.com/v1/12/lms.aspx?hash=WUlRa1pjd0RRUDdhbXhHcmtkeERvVmRBc1N6b2Q4VklmTU8vMEFxT3pSeXVpdGtneTBvaW92Z1gzdWpKbjAvdTdrZUFja2JDdmVxRjFCZ2UwVUplMEUwc3dIdTZlSFIvQmpmaGc1T2ZWTlRJejRxMzVuRVZkUlFVMTFsbzJXNm02eXpRcTZJSlVWMENNSlV0YlBIVUN3PT0="/>
+</apex:pageblock>
+</apex:form>
+</apex:page>

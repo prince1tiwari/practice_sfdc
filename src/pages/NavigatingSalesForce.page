@@ -1,0 +1,31 @@
+<apex:page controller="TrainingController" >
+  <!--<script>
+  function confirmCancel() {
+      var isCancel = confirm("Are you sure you wish to cancel?");
+      if (isCancel) return true;
+  
+     return false;
+  }  
+  </script> -->
+  <apex:sectionHeader title="Training For Pilot Users" subtitle="Step 1 of 4"/>
+    <apex:form >
+      <apex:pageBlock title="Getting Started: Navigating SalesForce" mode="edit">
+
+        <!-- The pageBlockButtons tag defines the buttons that appear at the top
+             and bottom of the pageBlock. Like a facet, it can appear anywhere in
+             a pageBlock, but always defines the button areas.--> 
+    
+        <!-- The Next button contained in this pageBlockButtons area
+             calls the step2 controller method, which returns a pageReference to
+             the next step of the wizard. --> 
+    
+        <apex:pageBlockButtons >
+          <apex:commandButton action="{!step2}" value="Next: Getting Started: Sales Cloud"/>
+        <!--  <apex:commandButton action="{!cancel}" value="Cancel"  onclick="return confirmCancel()" immediate="true"/> -->
+        </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Your Journey Starts here {!$User.FirstName}">
+    <apex:iframe width="800" height="700" src="https://lms.cfs-api.com/v1/12/lms.aspx?hash=WUlRa1pjd0RRUDdhbXhHcmtkeERvVmRBc1N6b2Q4VklmTU8vMEFxT3pSeXVpdGtneTBvaW92Z1gzdWpKbjAvdTdrZUFja2JDdmVxRjFCZ2UwVUplMEUwc3dIdTZlSFIvQmpmaGc1T2ZWTlRJejRxMzVuRVZkUlFVMTFsbzJXNm02eXpRcTZJSlVWMENNSlV0YlBIVUN3PT0="/>
+      </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

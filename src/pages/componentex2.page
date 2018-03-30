@@ -1,0 +1,31 @@
+<apex:page controller="AccountsFilterController">
+
+    <apex:form >
+
+        <apex:actionFunction name="displayTable" rerender="accts"/>
+
+        
+
+        <apex:pageblock >
+
+            <apex:outputLabel value="Display Accounts: "></apex:outputLabel>
+
+            <apex:selectList value="{!selectedAlpha}" size="1" onchange="displayTable();">
+
+                <apex:selectOptions value="{!alphaOptions}"></apex:selectOptions>
+
+            </apex:selectList>
+
+        </apex:pageblock>
+
+        
+
+        <apex:outputPanel id="accts">
+
+            <c:AddressTable title="Accounts" accts="{!accts[selectedAlpha]}" rendered="{!selectedAlpha!=''}"></c:AddressTable>
+
+        </apex:outputPanel>
+
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,80 @@
+<!-- 
+// T-376323 VF edit page to create new record of Opportunity Line Item Custom object
+//
+-->
+
+<!--Page where class 'Opportunity Line Extension' used-->
+<apex:page standardController="Opportunity_Line_Item__c" extensions="OpportunityLineExtensions">
+
+    <apex:form >
+ 
+        <apex:pageBlock title="Add Products">    <!--provides title to page displayed -->
+        
+        <apex:messages />
+        <apex:pageBlockButtons location="bottom">    <!--buttons displayed om bottom of page. -->
+            <apex:commandButton value="Add Row" action="{!AddRow}" immediate="true" />    <!--calls method AddRow() from extension class 'OpportunityLineExtensions'-->
+            <apex:commandButton value="Save" action="{!Save}" />                           <!--calls Save() method from extension class 'OpportunityLineExtensions'-->
+            <apex:commandButton value="Cancel" action="{!cancel}" />                     <!--standard cancel method used in standard Controller Opportunity-->
+        </apex:pageBlockButtons>
+       
+        <apex:pageBlockTable value="{!oppLineItem}" var="oppLine">    <!--page Block table includes list of Opportunity Line Item custom object-->
+        
+        <apex:column headerValue="Master Category">
+            <table><tr><td>
+                <apex:inputField value="{!oppLine.Master_Picklist__c}"/></td><td>    <!--input field named Master Category of custom object' Opportunity Line Item' is added to page.-->
+            </td></tr></table>
+        </apex:column>
+        
+        
+        <apex:column headerValue="Master Sub Category">
+             <table><tr><td>
+                <apex:inputField value="{!oppLine.Master_Sub_Category__c}"/></td><td>    <!--input field named 'Master Sub Category' added to page -->
+             </td></tr></table>
+        </apex:column>
+        
+         <apex:column headerValue="Product Category">
+             <table><tr><td>
+                 <apex:inputField value="{!oppLine.Product_Catagory__c}"/></td><td>    <!--Product category field added to page -->
+             </td></tr></table>
+         </apex:column>
+!        
+         <apex:column headerValue="Product Type">
+             <table><tr><td>
+                  <apex:inputField value="{!oppLine.Product_Type__c}"/></td><td>    <!--'Product type' field being added  to page -->
+             </td></tr></table>
+         </apex:column>
+         
+              
+         <apex:column headerValue="Quantity">
+              <table><tr><td>
+                  <apex:inputField value="{!oppLine.Quantity__c}"/></td><td>    <!-- field named 'Quantity' of object 'Opportunity Line Item' being added to page-->
+              </td></tr></table>
+         </apex:column>    
+              
+         <apex:column headerValue="Amount">
+              <table><tr><td>
+                  <apex:inputField value="{!oppLine.Amount__c}"/></td><td>    <!-- field named 'Amount' of Opportunity Line Item custom object being added  to page -->
+              </td></tr></table>
+         </apex:column>    
+              
+         <apex:column headerValue="Total">
+              <table><tr><td>
+                  <apex:inputField value="{!oppLine.Total__c}"/></td><td>    <!--field named ''Total' of Opportunity Line Item custom object being added to page -->
+              </td></tr></table>
+         </apex:column> 
+         
+   <apex:variable value="{!0}" var="cnt"/>
+         <apex:column headervalue="Remove">
+          <apex:commandlink style="font-size:15px; font-weight:bold; text-align:center;color:red;" value="X" action="{!removeOppLineItem}" immediate="true"> 
+              <!-- Pass the row number to the controller so that we know which row to remove -->
+              <apex:param name="index" value="{!cnt}"/>
+          </apex:commandlink> 
+         <apex:variable var="cnt" value="{!cnt+1}"/>              
+         </apex:column>  
+         
+         </apex:pageBlockTable>
+       
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

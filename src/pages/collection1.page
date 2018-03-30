@@ -1,0 +1,25 @@
+<apex:page controller="SelectOptionExampleController">
+
+<apex:form >
+
+    <apex:outputPanel id="msg">
+
+        <apex:messages />
+
+        <apex:pageMessages ></apex:pageMessages>
+
+    </apex:outputPanel>
+
+    <apex:selectList id="country" value="{!countries}" size="1">
+
+        <apex:selectOptions value="{!items}">
+
+        </apex:selectOptions>
+
+        <apex:actionSupport event="onchange" action="{!loadBrandProducts}" rerender="msg"/>
+
+    </apex:selectList> 
+
+</apex:form>
+
+</apex:page>

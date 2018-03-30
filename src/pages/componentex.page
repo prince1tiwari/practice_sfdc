@@ -1,0 +1,4 @@
+<apex:page >
+  <c:Mysimplecomponent myValue="Welcome Jagdish to the world of SFDC!!" borderColor="Green"></c:Mysimplecomponent><br />
+  <c:Mysimplecomponent myValue="Welcome123 Priya to the world of SFDC!!" borderColor="pink"></c:Mysimplecomponent>
+</apex:page>

@@ -1,0 +1,34 @@
+<apex:page standardController="Account" >
+<apex:sectionHeader description=" Test Page" subtitle="Test2" help="Test3" printUrl="test4"/>
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+Test 2 {!$User.LastName}
+</apex:pageblocksection>
+this is a test {!$User.FirstName}
+</apex:pageblock>
+<apex:pageblock >
+<apex:pageblocksection title="User Info" columns="3">
+<apex:pageblocksectionitem >
+<apex:OutputLabel value="User Email" for="User_email"/>
+<apex:Inputtext value="{!Account.Name}" id="User_email"/>
+</apex:pageblocksectionitem>
+
+<apex:pageblocksectionitem >
+<apex:OutputLabel value="Phone Number" for="Phone"/>
+<apex:Inputtext value="{!Account.Phone}" id="Phone"/>
+</apex:pageblocksectionitem>
+
+<apex:pageblocksectionitem helpText="test" dataTitle="test">
+<apex:OutputLabel value="Fax Number" for="Fax"/>
+<apex:Inputtext value="{!Account.fax}" id="Fax"/>
+</apex:pageblocksectionitem>
+</apex:pageblocksection>
+</apex:pageblock>
+<apex:pageblock title="Account Detail">
+<apex:pageblockTable value="{!account.contacts}" var="item">
+<apex:column value="{!item.name}"/>
+</apex:pageblockTable>
+</apex:pageblock>
+</apex:form>
+</apex:page>

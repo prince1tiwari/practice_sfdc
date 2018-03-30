@@ -1,0 +1,6 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  <b>This is your new Page: perexcompanypage</b>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
