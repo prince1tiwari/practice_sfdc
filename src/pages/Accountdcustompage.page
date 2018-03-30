@@ -1,6 +1,6 @@
 <apex:page standardController="Account">
 
-Hello {!$User.FirstName},
+Hello myfriend {!$User.FirstName},
 <p>Lets view and update the account {!account.name}</p>
 <apex:pageBlock title=" View Account Detail">
 Account id: {!account.AccountNumber}
